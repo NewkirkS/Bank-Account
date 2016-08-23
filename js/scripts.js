@@ -4,10 +4,20 @@ function Account (name, deposit) {
   this.accountBalance = deposit;
 }
 Account.prototype.withdraw = function(withdrawl){
-  this.accountBalance = this.accountBalance - withdrawl
+  this.accountBalance = this.accountBalance - withdrawl;
+  if(this.accountBalance < 0){
+    this.accountBalance = this.accountBalance -(withdrawl + 4000);
+  }
+    this.accountBalance = Math.ceil(this.accountBalance * 100) / 100;
 }
 Account.prototype.deposit = function(deposit){
-  this.accountBalance = this.accountBalance + deposit
+  if(this.accountBalance < 0){
+    this.accountBalance = this.accountBalance + deposit/20;
+  }
+  else{
+    this.accountBalance = this.accountBalance + deposit;
+  }
+  this.accountBalance = Math.ceil(this.accountBalance * 100) / 100;
 }
 //Front End
 $(function(){
@@ -25,16 +35,17 @@ $(function(){
       var withdrawl = parseFloat($("#withdrawl").val());
       newAccount.withdraw(withdrawl);
       $("#results").text("$" + newAccount.accountBalance);
+      $("input").val("");
     });
     $("#depositButton").click(function(){
       var deposit = parseFloat($("#deposit").val());
       newAccount.deposit(deposit);
       $("#results").text("$" + newAccount.accountBalance);
+      $("input").val("");
     });
   });
 
   $("#results").text("$" + newAccount.accountBalance);
   $("input").val("");
   });
-
 });
