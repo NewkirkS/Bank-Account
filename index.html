@@ -28,16 +28,22 @@
           <form id="transactionForm" class="form-group" action="index.html" method="post">
             <h2>Deposit of withdraw fund</h2>
             <label for="">Deposit Amount</label>
-            <input type="number" name="name" value="">
+            <input id="deposit" type="number" name="name" value="">
+            <button id="depositButton" type="button" class="btn btn-success form-control">Deposit</button>
             <label for="">Withdraw Amount:</label>
-            <input type="number" name="name" value="">
-            <button type="submit" class="btn btn-success form-control">Submit</button>
+            <input id="withdrawl" type="number" name="name" value="">
+            <button id="withdrawButton" type="button" class="btn btn-success form-control">Withdraw</button>
           </form>
         </div>
       </div>
       <div class="row">
-        <h2>Balance:</h2>
-        <p id="results"></p>
+        <div class="col-sm-6">
+          <h2>Balance:</h2>
+          <p id="results"></p>
+        </div>
+        <div class="col-sm-6">
+          <p id="clickableName"></p>
+        </div>
       </div>
     </div>
   </body>
