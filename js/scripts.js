@@ -11,5 +11,6 @@ $(function(){
   var initialDeposit =  parseFloat($("input#initial-deposit").val());
   var newAccount = new Account(accountName, initialDeposit);
   console.log(newAccount);
+  $("#results").text("$"+newAccount.accountBalance);
   });
 });
